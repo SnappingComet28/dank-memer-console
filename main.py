@@ -3,6 +3,7 @@
 '''DANK EXTENSIONS'''
 import log 
 import bal
+import daily
 
 
 '''
@@ -48,6 +49,15 @@ while True:
         else:
             query = query.replace("dep","").strip()
         bal.deposit(query)
+    elif "add" in query:
+        bal.add(query.replace("add","").strip())
+    
+    elif "subtract" in query:
+        bal.subtract(query.replace("subtract","").strip())
+
+    elif "daily" in query:
+        import daily
+        daily.check()
 
     elif query == 'bye':
         '''TERMINATION'''
