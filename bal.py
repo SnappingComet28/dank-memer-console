@@ -23,7 +23,7 @@ def withraw(amt):
     
         '''REPLACEMENT OF ABBREVIATIONS IN ARGS'''
     if amt == "all":
-        amt = data["pocket"]
+        amt = data["bank"]
     elif "m" in amt:
         amt = int(amt.replace("m","000000"))
     elif "k" in amt:
@@ -124,8 +124,7 @@ def add(amount,of="pocket"):
             print(f"now u have {data["capacity"]-amt} + {amt} = {data["capacity"]}")
             return True
         else:
-            return False
-         
+            return False         
 def subtract(amount,all=False):
     
     '''OPENING THE FILE IN BOTH READ AND WRITE'''
