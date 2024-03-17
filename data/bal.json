@@ -1,1 +1,5 @@
-{"pocket": 0, "bank": 0, "capacity": 5000}
+{
+    "pocket": 30000,
+    "bank": 0,
+    "capacity": 5000
+}

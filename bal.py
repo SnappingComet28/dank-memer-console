@@ -103,7 +103,24 @@ def deposit(amt):
         # except:
         #     return False
     else:
-        print("Bank can't have that much moni, keep it in ur pocket")    
+        if data["bank"] == data["capacity"]:
+            print("the bank is full where will i put it? keep it in ur pocket")
+            return
+        amt =  data["capacity"] - data["bank"]
+        data["pocket"] = data["pocket"]-int(amt)
+        data["bank"] = data["bank"]+int(amt)
+        # try:
+        '''DEPOSITION PROCESS'''
+        with open("data/bal.json","wt") as file:
+            json.dump(
+                {
+                    "pocket":int(data["pocket"]),
+                    "bank":int(data["bank"]),
+                    "capacity":int(data["capacity"])
+                }
+                ,file,indent=4)
+            print(f"done bro! now u have {data["pocket"]} money in ur pocket\nand {data["bank"]}/{data["capacity"]} in ur bank (bank full so i only put {amt})")
+            return True
 def add(amount,of="pocket"):
     '''OPENING THE FILE IN BOTH READ AND WRITE'''
     amt = int(amount)
