@@ -54,8 +54,10 @@ def withraw(amt):
                 "capacity":int(data["capacity"])
             }
             ,file,indent=4)
+        print(f"done bro! now u have {data["pocket"]} money in ur pocket\nand {data["bank"]}/{data["capacity"]} in ur bank")
         return True
 def deposit(amt):
+
     '''LOADING OF CURRENT BALANCE'''
     with open("data/bal.json") as file:
         data = json.load(file)
@@ -96,9 +98,59 @@ def deposit(amt):
                     "capacity":int(data["capacity"])
                 }
                 ,file,indent=4)
+            print(f"done bro! now u have {data["pocket"]} money in ur pocket\nand {data["bank"]}/{data["capacity"]} in ur bank")
             return True
         # except:
         #     return False
     else:
         print("Bank can't have that much moni, keep it in ur pocket")    
+def add(amount,of="pocket"):
+    '''OPENING THE FILE IN BOTH READ AND WRITE'''
+    amt = int(amount)
+    with open("data/bal.json","rt") as fiel:
+        '''GETTING LATEST DATA'''
+        data = json.load(fiel)
+    with open("data/bal.json","wt") as file:
+        if of == "pocket":
+            '''ADDITION OF MONI INTO POCKET'''
+            data["pocket"] +=amt
+            json.dump(data,file)
+            print(f"now u have {data["pocket"]-amt} + {amt} = {data["pocket"]} moni in pocket")
+            return True
+        
+        elif of == "capacity":
+            data["capacity"] += amt
+            json.dump(data,file)
+            print(f"now u have {data["capacity"]-amt} + {amt} = {data["capacity"]}")
+            return True
+        else:
+            return False
+         
+def subtract(amount,all=False):
     
+    '''OPENING THE FILE IN BOTH READ AND WRITE'''
+    amt = int(amount)
+    with open("data/bal.json","rt") as fiel:
+        '''GETTING LATEST DATA'''
+        data = json.load(fiel)
+    with open("data/bal.json","wt") as file:
+        if not all:
+            '''SUBTRACTION OF MONI FROM POCKET'''
+            data["pocket"] -=amt
+            if data["pocket"] < 0:
+                print(f"lol imagine being in debt of {data["pocket"]}")
+            json.dump(data,file)
+            
+            print(f"now u have {data["pocket"]+amt} - {amt} = {data["pocket"]} moni in pocket")
+            return True
+        
+        elif all:
+            '''SUBTRACTION OF ALL MONEY FROM POCKET'''
+            data["pocket"] = 0 
+            if data["pocket"] < 0:
+                print(f"lol imagine being broke")
+            json.dump(data,file)
+            return True
+        
+        else:
+            return False 
