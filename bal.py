@@ -1,5 +1,11 @@
+'THIS PROGRAM WAS WRITTEN BEFORE I DECIDED TO ARRANGE THE CODE'
+
+'IMPORTS'
 import json
+
 data = {}
+
+'DISPLAYS USER\'S MONI'
 def bal():
     try:
         with open("data/bal.json") as file:
@@ -13,9 +19,11 @@ def bal():
                 print(f"\t{key}:\n\t\t{value}")
                 continue
             print(f"\t{key}:\n\t\t{value}\n") 
-        return True
+        return
     except:
-        return False #not found
+        return ("Not found",0)
+    
+'WITHRAWAL OF MONI FROM BANK'    
 def withraw(amt):
     '''LOADING OF CURRENT BALANCE'''
     with open("data/bal.json") as file:
@@ -56,6 +64,8 @@ def withraw(amt):
             ,file,indent=4)
         print(f"done bro! now u have {data["pocket"]} money in ur pocket\nand {data["bank"]}/{data["capacity"]} in ur bank")
         return True
+    
+'DEPOSITION OF MONI TO BANK'
 def deposit(amt):
 
     '''LOADING OF CURRENT BALANCE'''
@@ -121,6 +131,8 @@ def deposit(amt):
                 ,file,indent=4)
             print(f"done bro! now u have {data["pocket"]} money in ur pocket\nand {data["bank"]}/{data["capacity"]} in ur bank (bank full so i only put {amt})")
             return True
+        
+'ADMIN: ADD MONI'
 def add(amount,of="pocket"):
     '''OPENING THE FILE IN BOTH READ AND WRITE'''
     amt = int(amount)
@@ -141,7 +153,9 @@ def add(amount,of="pocket"):
             print(f"now u have {data["capacity"]-amt} + {amt} = {data["capacity"]}")
             return True
         else:
-            return False         
+            return False
+
+'ADMIN: SUBTRACT OF MONI'         
 def subtract(amount,all=False):
     
     '''OPENING THE FILE IN BOTH READ AND WRITE'''

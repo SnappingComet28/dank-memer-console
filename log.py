@@ -1,3 +1,5 @@
+'THIS PROGRAM WAS WRITTEN BEFORE I DECIDED TO ARRANGE THE CODE'
+
 import json
 def logcheck():
     try:

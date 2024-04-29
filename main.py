@@ -37,6 +37,9 @@ while True:
             exit(0)
     
     elif "withraw" in query or "with" in query:
+        '''
+        WITHRAWAL OF MONI
+        '''
         if "withraw" in query:
             query = query.replace("withraw","").strip()
         else:
@@ -44,18 +47,30 @@ while True:
         bal.withraw(query)
 
     elif "deposit" in query or "dep" in query:
+        '''
+        DEPOSITION OF MONI
+        '''
         if "deposit" in query:
             query = query.replace("deposit","").strip()
         else:
             query = query.replace("dep","").strip()
         bal.deposit(query)
     elif "add" in query:
+        '''
+        ADMIN:ADD OF MONI 
+        '''
         bal.add(query.replace("add","").strip())
     
     elif "subtract" in query:
+        '''
+        ADMIN:REMOVAL OF MONI
+        '''
         bal.subtract(query.replace("subtract","").strip())
 
     elif "daily" in query:
+        '''
+        CHECKS FOR DAILY
+        '''
         import daily
         daily.check()
 
