@@ -19,9 +19,9 @@ def bal():
                 print(f"\t{key}:\n\t\t{value}")
                 continue
             print(f"\t{key}:\n\t\t{value}\n") 
-        return
+        return True
     except:
-        return ("Not found",0)
+        return False
     
 'WITHRAWAL OF MONI FROM BANK'    
 def withraw(amt):

@@ -15,11 +15,16 @@ def login(user):
     try:
         with open("./data/user.json",'wt+') as file:
             json.dump({"name":user})
-            if json.load(file):
-                return True
-            else:
-                return False
-    except:
+            return True
+    except FileNotFoundError:
+        return False
+
+def logout():
+    try:
+        with open("./data/user.json","wt") as file:
+            json.dump({},file)
+            return True
+    except FileNotFoundError:
         return False
         
     

@@ -41,7 +41,7 @@ def check():
                 "lastdaily":now,
                 "streak":data["streak"]+1
             },file1)
-        print(f"done bro! ur daily streak is now {data["streak"]+1}")
+        print(f"wow! u lost ur streak and ur daily streak is now {data["streak"]+1}")
         return True
     #'IF DAILY WAS RAN WITHIN 24 HRS'
     elif round(now-last) < 86400:

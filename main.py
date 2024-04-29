@@ -5,7 +5,6 @@ import log
 import bal
 import daily
 
-
 '''
 THIS PART CHECKS FOR LOGIN OF USER. IF NOT THEN CREATES AN ACCOUNT
 '''
