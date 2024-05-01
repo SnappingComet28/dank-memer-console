@@ -11,7 +11,7 @@ def check():
     now = time()
     
     'OPENS THE RECORD TO GET THE TIME OF LAST "DAILY" RAN'
-    with open("./data/lastdaily.json") as file:
+    with open("user/lastdaily.json") as file:
         data = json.load(file)
     last = data["lastdaily"]
 
@@ -19,7 +19,7 @@ def check():
     if round(now-last) >= 86400 and round(now-last) < 2*86400:
         ''' ADDS THE MONI'''
         bal.add((100000+1000*data["streak"]),of="pocket")
-        with open("./data/lastdaily.json","wt") as file1:
+        with open("user/lastdaily.json","wt") as file1:
             json.dump({
                 "lastdaily":now,
                 "streak":data["streak"]+1
@@ -30,13 +30,13 @@ def check():
     #'IF THE DAILY WAS RAN AFTER 48 HRS'
     elif round(now-last) > 2*86400:
         ''' ADDS THE MONI'''
-        with open("./data/lastdaily.json","wt") as fiel:
+        with open("user/lastdaily.json","wt") as fiel:
             data["streak"] = 0
             json.dump(data,fiel)
-        with open("./data/lastdaily.json") as jdj:
+        with open("user/lastdaily.json") as jdj:
             data = json.load(jdj)
         bal.add(100000+1000*data["streak"],of="pocket")
-        with open("./data/lastdaily.json","wt") as file1:
+        with open("user/lastdaily.json","wt") as file1:
             json.dump({
                 "lastdaily":now,
                 "streak":data["streak"]+1

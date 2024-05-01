@@ -3,7 +3,7 @@
 import json
 def logcheck():
     try:
-        with open("./data/user.json") as file:
+        with open("user/user.json") as file:
             data = json.load(file)
             if data:
                 return data["name"]
@@ -13,7 +13,7 @@ def logcheck():
         return False
 def login(user):
     try:
-        with open("./data/user.json",'wt+') as file:
+        with open("user/user.json",'wt+') as file:
             json.dump({"name":user})
             return True
     except FileNotFoundError:
@@ -21,7 +21,7 @@ def login(user):
 
 def logout():
     try:
-        with open("./data/user.json","wt") as file:
+        with open("user/user.json","wt") as file:
             json.dump({},file)
             return True
     except FileNotFoundError:

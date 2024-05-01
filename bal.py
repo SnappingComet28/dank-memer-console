@@ -8,7 +8,7 @@ data = {}
 'DISPLAYS USER\'S MONI'
 def bal():
     try:
-        with open("data/bal.json") as file:
+        with open("user/bal.json") as file:
            data = json.load(file)
         print("Your Monis:\n")
         for key,value in data.items(): 
@@ -26,7 +26,7 @@ def bal():
 'WITHRAWAL OF MONI FROM BANK'    
 def withraw(amt):
     '''LOADING OF CURRENT BALANCE'''
-    with open("data/bal.json") as file:
+    with open("user/bal.json") as file:
         data = json.load(file)
     
         '''REPLACEMENT OF ABBREVIATIONS IN ARGS'''
@@ -54,7 +54,7 @@ def withraw(amt):
     '''WITHRAWAL PROCESS'''
     data["bank"] = data["bank"]-amt
     data["pocket"] = data["pocket"]+amt
-    with open("data/bal.json","wt") as file:
+    with open("user/bal.json","wt") as file:
         json.dump(
             {
                 "pocket":int(data["pocket"]),
@@ -69,7 +69,7 @@ def withraw(amt):
 def deposit(amt):
 
     '''LOADING OF CURRENT BALANCE'''
-    with open("data/bal.json") as file:
+    with open("user/bal.json") as file:
         data = json.load(file)
     
         '''REPLACEMENT OF ABBREVIATIONS IN ARGS'''
@@ -100,7 +100,7 @@ def deposit(amt):
         data["bank"] = data["bank"]+int(amt)
         # try:
         '''DEPOSITION PROCESS'''
-        with open("data/bal.json","wt") as file:
+        with open("user/bal.json","wt") as file:
             json.dump(
                 {
                     "pocket":int(data["pocket"]),
@@ -121,7 +121,7 @@ def deposit(amt):
         data["bank"] = data["bank"]+int(amt)
         # try:
         '''DEPOSITION PROCESS'''
-        with open("data/bal.json","wt") as file:
+        with open("user/bal.json","wt") as file:
             json.dump(
                 {
                     "pocket":int(data["pocket"]),
@@ -136,10 +136,10 @@ def deposit(amt):
 def add(amount,of="pocket"):
     '''OPENING THE FILE IN BOTH READ AND WRITE'''
     amt = int(amount)
-    with open("data/bal.json","rt") as fiel:
+    with open("user/bal.json","rt") as fiel:
         '''GETTING LATEST DATA'''
         data = json.load(fiel)
-    with open("data/bal.json","wt") as file:
+    with open("user/bal.json","wt") as file:
         if of == "pocket":
             '''ADDITION OF MONI INTO POCKET'''
             data["pocket"] +=amt
@@ -160,10 +160,10 @@ def subtract(amount,all=False):
     
     '''OPENING THE FILE IN BOTH READ AND WRITE'''
     amt = int(amount)
-    with open("data/bal.json","rt") as fiel:
+    with open("user/bal.json","rt") as fiel:
         '''GETTING LATEST DATA'''
         data = json.load(fiel)
-    with open("data/bal.json","wt") as file:
+    with open("user/bal.json","wt") as file:
         if not all:
             '''SUBTRACTION OF MONI FROM POCKET'''
             data["pocket"] -=amt
