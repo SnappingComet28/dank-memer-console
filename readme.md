@@ -1,8 +1,6 @@
 
-#####################################################################
 # THIS README FILE WILL HELP YOU TO KNOW QUICKLY HOW THE CODE WORKS #
-#####################################################################
-
+☻
 About:
 
 Project name - Dank memer replica (command line)
