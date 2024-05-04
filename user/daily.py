@@ -2,7 +2,7 @@
 
 'IMPORTS'
 from time import time
-import bal
+import user.bal as bal
 import json
 
 'CHECKS THE LAST "DAILY" RAN'
@@ -18,7 +18,7 @@ def check():
     #'IF DAILY WAS RAN WITHIN 48 HRS'
     if round(now-last) >= 86400 and round(now-last) < 2*86400:
         ''' ADDS THE MONI'''
-        bal.add((100000+1000*data["streak"]),of="pocket")
+        bal.add((10000+1000*data["streak"]),of="pocket")
         with open("user/lastdaily.json","wt") as file1:
             json.dump({
                 "lastdaily":now,

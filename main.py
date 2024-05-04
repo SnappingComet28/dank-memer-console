@@ -1,9 +1,9 @@
 '''OTHER IMPORTS'''
 
 '''DANK EXTENSIONS'''
-import log 
-import bal
-import daily
+import user.log as log 
+import user.bal as bal
+import user.daily as daily
 
 '''
 STARTUP
@@ -84,7 +84,7 @@ while True:
         '''
         CHECKS FOR DAILY
         '''
-        import daily
+        import user.daily as daily
         daily.check()
 
     elif query == 'bye':
